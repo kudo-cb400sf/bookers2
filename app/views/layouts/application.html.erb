@@ -1,30 +1,106 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookers2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bookers2Ver2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://kit.fontawesome.com/563a6b2bd3.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+    <% flash.each do |message_type, message| %>
+
 
   <body>
-     <header>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>
-  </header>
-    <%= yield %>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+          <span>Bookers</span>
+        </a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarNavDropdown" style>
+          <ul class="navbar-nav ml-auto">
+            <li>
+              <a class="nav-link text-light" href="/">
+                <i class="fas fa-home" aria-hidden="true"></i>
+                "Home"
+                </a>
+              </li>
+
+              <li>
+                <a class="nav-link text-light" href="/home/about">
+                                                <!--root_path?-->
+                  <i class="fas fa-link" aria-hidden="true"></i>
+                  "About"
+                </a>
+              </li>
+
+              <li>
+                <a class="nav-link text-light" href="users/sign_up">
+                                                 <!--users_sign_up_path?-->
+                  <i class="fas fa-user-plus" aria-hidden="true"></i>
+                "Sign up"
+                </a>
+              </li>
+
+              <li>
+                <a class="nav-link text-light" href="/users/sign_in">
+                  <i class="fas fa-sign-in-alt" aria-hidden="true"></i>
+                "Log in"
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </heder>
+
+    <main>
+      <p id="notice"></p>
+      <div class="container">
+        <div class="row">
+          <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+            <h1>
+              "welcome to "
+              <i class="fas fas-book" aria-hidden="true">
+                ::before
+              </i>
+              <string>Bookers</string>
+            </h1>
+            <p>
+              "In "
+              <i class="fas fa-book" aria-hidden="true">
+                ::before
+              </i>
+              <string>Bookers</string>
+              ","
+            </p>
+            <p>you can share and exchange your opinions , inpressions , and emotions</p>
+            <p>about various books!</p>
+            <div class="btn-wrapper col-10 mx-auto">
+              <div class="row">
+                <a class="btn btn-info btn-sm btn-block mb=3 sign_in" href="/users/sign_in">Log in</a>
+              </div>
+              <div class="row">
+                <a class="btn btn-success btn-sm btn=block sign_up". href="/users/sign_up">Sign up</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
